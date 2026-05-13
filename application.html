@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="form.title">Formulario de Aplicación - TrackFlow</title>
+    <meta name="description" data-translate="form.description" content="Aplica para ser cliente de TrackFlow. Completa el formulario para comenzar tu proceso de registro.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1f2937',
+                        secondary: '#374151',
+                        accent: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <header class="bg-gray-800 shadow-lg">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <svg class="h-10 w-10 mr-3 text-orange-400" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+                <a href="index.html" class="text-2xl font-bold text-orange-400">TrackFlow</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-gray-300 hover:text-orange-400 transition" data-translate="form.back">Volver al Inicio</a>
+                <button id="language-toggle" onclick="toggleLanguage()" class="hidden md:inline-flex border border-white/20 bg-white/5 text-white px-4 py-2 rounded-full font-semibold transition duration-300 transform hover:-translate-y-0.5 hover:bg-white/10 hover:shadow-xl active:scale-95">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-16">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <h1 class="text-3xl font-bold text-center mb-8" data-translate="form.title">Formulario de Aplicación</h1>
+            <p class="text-center text-gray-300 mb-8" data-translate="form.subtitle">Completa tus datos para registrarte como cliente potencial de TrackFlow.</p>
+
+            <form id="applicationForm" class="bg-gray-800 p-8 rounded-lg shadow-lg" novalidate>
+                <fieldset class="mb-6">
+                    <legend class="text-lg font-semibold mb-4" data-translate="form.requesterType">Tipo de Solicitante</legend>
+                    <div class="flex space-x-6">
+                        <label class="flex items-center">
+                            <input type="radio" name="tipo" value="cliente" required class="mr-2">
+                            <span data-translate="form.clientType">Cliente Individual</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="tipo" value="empresa" required class="mr-2">
+                            <span data-translate="form.companyType">Empresa</span>
+                        </label>
+                    </div>
+                    <div id="tipoError" class="text-red-500 text-sm mt-1 hidden" data-translate="form.errors.tipo">Selecciona un tipo de solicitante.</div>
+                </fieldset>
+
+                <div class="mb-6">
+                    <label for="pais" class="block text-sm font-medium mb-2" data-translate="form.country.label">País de Operación</label>
+                    <select id="pais" name="pais" required class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-orange-400">
+                        <option value="" data-translate="form.country.placeholder">Selecciona un país</option>
+                        <option value="USA" data-translate="form.country.usa">Estados Unidos</option>
+                        <option value="ES" data-translate="form.country.es">España</option>
+                    </select>
+                    <div id="paisError" class="text-red-500 text-sm mt-1 hidden" data-translate="form.errors.pais">Selecciona un país de operación.</div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="asunto" class="block text-sm font-medium mb-2" data-translate="form.subject.label">Asunto</label>
+                    <input type="text" id="asunto" name="asunto" required class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-orange-400">
+                    <div id="asuntoError" class="text-red-500 text-sm mt-1 hidden" data-translate="form.errors.asunto">El asunto es obligatorio.</div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="nombre" class="block text-sm font-medium mb-2" data-translate="form.name.label">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" required class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-orange-400">
+                    <div id="nombreError" class="text-red-500 text-sm mt-1 hidden" data-translate="form.errors.nombre">El nombre completo es obligatorio y debe tener al menos 2 palabras.</div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="telefono" class="block text-sm font-medium mb-2" data-translate="form.phone.label">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" required class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-orange-400">
+                    <div id="telefonoError" class="text-red-500 text-sm mt-1 hidden" data-translate="form.errors.telefono">Ingresa un número de teléfono válido.</div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="correo" class="block text-sm font-medium mb-2" data-translate="form.email.label">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" required class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-orange-400">
+                    <div id="correoError" class="text-red-500 text-sm mt-1 hidden" data-translate="form.errors.correo">Ingresa un correo electrónico válido.</div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="contrasena" class="block text-sm font-medium mb-2" data-translate="form.password.label">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" required class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-orange-400">
+                    <div id="contrasenaError" class="text-red-500 text-sm mt-1 hidden" data-translate="form.errors.contrasena">La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y números.</div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="confirmarContrasena" class="block text-sm font-medium mb-2" data-translate="form.confirmPassword.label">Confirmar Contraseña</label>
+                    <input type="password" id="confirmarContrasena" name="confirmarContrasena" required class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-orange-400">
+                    <div id="confirmarError" class="text-red-500 text-sm mt-1 hidden" data-translate="form.errors.confirmar">Las contraseñas no coinciden.</div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="mensaje" class="block text-sm font-medium mb-2" data-translate="form.message.label">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-orange-400"></textarea>
+                    <div id="mensajeError" class="text-red-500 text-sm mt-1 hidden" data-translate="form.errors.mensaje">El mensaje es obligatorio.</div>
+                </div>
+
+                <div class="flex space-x-4">
+                    <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded font-semibold transition" data-translate="form.buttons.submit">Enviar Aplicación</button>
+                    <button type="button" onclick="limpiarFormulario()" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded font-semibold transition" data-translate="form.buttons.clear">Limpiar</button>
+                </div>
+
+                <div id="successMessage" class="mt-4 text-green-500 hidden" data-translate="form.success">¡Aplicación enviada exitosamente! Nos pondremos en contacto pronto.</div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 py-8 border-t border-gray-700">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400" data-translate="form.footer">&copy; 2023 TrackFlow. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="validation.js"></script>
+    <script>
+        const defaultLanguage = localStorage.getItem("language") || "es";
+
+        function setLanguage(language) {
+            document.documentElement.lang = language;
+            localStorage.setItem("language", language);
+
+            document.querySelectorAll("[data-translate]").forEach(element => {
+                const key = element.dataset.translate;
+                if (translations[language][key]) {
+                    if (element.tagName === "META") {
+                        element.content = translations[language][key];
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
+                }
+            });
+
+            const langButton = document.getElementById("language-toggle");
+            if (langButton) {
+                langButton.textContent = language === "es" ? "EN" : "ES";
+            }
+        }
+
+        function toggleLanguage() {
+            const current = localStorage.getItem("language") || "es";
+            const next = current === "es" ? "en" : "es";
+            setLanguage(next);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setLanguage(defaultLanguage);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackFlow - Logística de Última Milla y Gestión de Almacenes</title>
+    <meta name="description"
+        content="TrackFlow es tu socio en logística de última milla y gestión de almacenes. Almacenamos, empaquetamos y entregamos tus productos con eficiencia en EE.UU. y España.">
+    <meta name="keywords"
+        content="logística, última milla, almacenes, e-commerce, TrackFlow, entregas, gestión de inventario">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1f2937', // Dark gray for logistics theme
+                        secondary: '#374151',
+                        accent: '#f59e0b', // Orange accent
+                    }
+                }
+            }
+        }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TrackFlow",
+        "description": "Empresa de logística de última milla y gestión de almacenes",
+        "foundingDate": "2009",
+        "founder": {
+            "@type": "Person",
+            "name": "Thomas Harry"
+        },
+        "address": [
+            {
+                "@type": "PostalAddress",
+                "addressLocality": "Los Ángeles",
+                "addressCountry": "US"
+            },
+            {
+                "@type": "PostalAddress",
+                "addressLocality": "Zaragoza",
+                "addressCountry": "ES"
+            }
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": [
+            "https://www.trackflow.com" // Placeholder
+        ]
+    }
+    </script>
+</head>
+
+<body class="bg-gray-900 text-white font-sans antialiased scroll-smooth">
+    <header class="bg-gray-900 bg-opacity-95 border-b border-white border-opacity-10 shadow-xl">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <svg class="h-10 w-10 text-orange-400" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
+                </svg>
+                <div>
+                    <h1 class="text-2xl font-semibold tracking-tight text-white">TrackFlow</h1>
+                    <p class="text-xs uppercase tracking-[0.35em] text-gray-400" data-translate="nav.tagline">Logística
+                        Inteligente</p>
+                </div>
+            </div>
+            <ul class="hidden md:flex items-center space-x-8 text-sm tracking-widest uppercase text-gray-300">
+                <li><a href="#hero" data-translate="nav.home"
+                        class="hover:text-white transition duration-200">Inicio</a></li>
+                <li><a href="#features" data-translate="nav.services"
+                        class="hover:text-white transition duration-200">Servicios</a></li>
+                <li><a href="#about" data-translate="nav.about" class="hover:text-white transition duration-200">Sobre
+                        Nosotros</a></li>
+                <li><a href="#results" data-translate="nav.results"
+                        class="hover:text-white transition duration-200">Resultados</a></li>
+                <li><a href="#contact" data-translate="nav.contact"
+                        class="hover:text-white transition duration-200">Contacto</a></li>
+            </ul>
+            <div class="flex items-center gap-3">
+                <button id="language-toggle" onclick="toggleLanguage()"
+                    class="hidden md:inline-flex border border-white/20 bg-white/5 text-white px-5 py-2.5 rounded-full font-semibold transition duration-300 transform hover:-translate-y-0.5 hover:bg-white/10 hover:shadow-xl active:scale-95">
+                    EN
+                </button>
+                <button
+                    class="md:hidden p-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition"
+                    aria-label="Abrir menú" onclick="toggleMenu()">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <a href="application.html"
+                    class="hidden md:inline-flex bg-orange-400 text-gray-900 px-5 py-2.5 rounded-full font-semibold transition duration-300 transform hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-orange-400/50 hover:bg-orange-300 active:scale-95"
+                    data-translate="nav.apply">Aplicar
+                    Ahora</a>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 px-4 py-5 border-t border-white border-opacity-10">
+            <ul class="space-y-4 text-sm tracking-wide uppercase text-gray-300">
+                <li>
+                    <button id="language-toggle-mobile" onclick="toggleLanguage()"
+                        class="w-full border border-white/20 bg-white/5 text-white px-4 py-3 rounded-full text-center font-semibold transition duration-300 hover:bg-white/10">
+                        EN
+                    </button>
+                </li>
+                <li><a href="#hero" class="block hover:text-white transition duration-200">Inicio</a></li>
+                <li><a href="#features" class="block hover:text-white transition duration-200">Servicios</a></li>
+                <li><a href="#about" class="block hover:text-white transition duration-200">Sobre Nosotros</a></li>
+                <li><a href="#results" class="block hover:text-white transition duration-200">Resultados</a></li>
+                <li><a href="#contact" class="block hover:text-white transition duration-200">Contacto</a></li>
+                <li><a href="application.html"
+                        class="block bg-orange-400 hover:bg-orange-300 text-gray-900 px-4 py-3 rounded-full text-center font-semibold transition duration-300 transform hover:shadow-2xl hover:shadow-orange-400/50 hover:-translate-y-1 active:scale-95"
+                        data-translate="nav.apply">Aplicar
+                        Ahora</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero"
+            class="relative min-h-screen overflow-hidden flex items-center scroll-reveal opacity-0 translate-y-8 transition duration-700 ease-out"
+            style="background: linear-gradient(180deg, rgba(15, 23, 42, 0.3) 0%, rgba(30, 41, 59, 0.45) 50%, rgba(51, 65, 85, 0.55) 100%), url('Fotos/Banner.png') center/cover; background-size: cover; background-position: center center;">
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <div class="inline-flex rounded-full bg-white bg-opacity-5 px-4 py-2 mb-8 text-sm uppercase tracking-widest text-gray-200 border border-white border-opacity-10"
+                    data-translate="hero.badge">Logística Global y Operaciones Elite</div>
+                <h2 class="text-4xl sm:text-5xl md:text-7xl font-semibold leading-tight mb-6 max-w-4xl mx-auto text-white drop-shadow-2xl"
+                    data-translate="hero.title">Logística elegante, fiable y a escala internacional.</h2>
+                <p class="text-base md:text-xl text-gray-200 max-w-3xl mx-auto mb-10 leading-relaxed"
+                    data-translate="hero.description">Transformamos tus
+                    operaciones de e-commerce con un servicio integral de almacenamiento, última milla y devoluciones,
+                    diseñado para empresas que necesitan calidad y velocidad en Estados Unidos y España.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="application.html"
+                        class="inline-flex items-center justify-center bg-orange-400 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold transition duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-400/60 hover:bg-orange-300 active:scale-95"
+                        data-translate="hero.button1">Comienza
+                        tu Aplicación</a>
+                    <a href="#features"
+                        class="inline-flex items-center justify-center border-2 border-white border-opacity-30 text-white px-8 py-4 rounded-full text-lg font-semibold transition duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:border-white hover:border-opacity-100 hover:bg-white hover:bg-opacity-10 active:scale-95"
+                        data-translate="hero.button2">Ver
+                        Servicios</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features"
+            class="py-20 bg-gray-900 scroll-reveal opacity-0 translate-y-8 transition duration-700 ease-out">
+            <div class="container mx-auto px-4">
+                <h3 class="text-4xl font-semibold text-center mb-14 text-white" data-translate="services.title">Nuestros
+                    Servicios Clave</h3>
+                <div class="grid gap-8 md:grid-cols-3">
+                    <article
+                        class="group overflow-hidden rounded-3xl border border-white border-opacity-10 bg-white bg-opacity-5 p-6 shadow-2xl transition duration-500 hover:-translate-y-2 hover:bg-white hover:bg-opacity-10 scroll-reveal opacity-0 translate-y-8">
+                        <div class="overflow-hidden rounded-3xl mb-6">
+                            <img src="Fotos/Almacen.png"
+                                alt="Almacén grande con estanterías llenas de cajas y paquetes organizados"
+                                class="h-56 w-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="text-2xl font-semibold mb-3 text-white" data-translate="services.warehousing.title">
+                            Gestión de Almacenes</h4>
+                        <p class="text-gray-300 leading-relaxed" data-translate="services.warehousing.description">
+                            Almacenamiento seguro y eficiente de tu inventario en
+                            Los Ángeles y Zaragoza, con procesos optimizados para minimizar errores y tiempos de
+                            manipulación.</p>
+                    </article>
+                    <article
+                        class="group overflow-hidden rounded-3xl border border-white border-opacity-10 bg-white bg-opacity-5 p-6 shadow-2xl transition duration-500 hover:-translate-y-2 hover:bg-white hover:bg-opacity-10 scroll-reveal opacity-0 translate-y-8">
+                        <div class="overflow-hidden rounded-3xl mb-6">
+                            <img src="Fotos/Camion.png"
+                                alt="Camión de entrega profesional en carretera realizando envíos rápidos"
+                                class="h-56 w-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="text-2xl font-semibold mb-3 text-white" data-translate="services.lastmile.title">
+                            Última Milla</h4>
+                        <p class="text-gray-300 leading-relaxed" data-translate="services.lastmile.description">Entregas
+                            premium con rutas optimizadas, seguimiento
+                            centralizado y coordinación eficiente con transportistas en EE.UU. y España.</p>
+                    </article>
+                    <article
+                        class="group overflow-hidden rounded-3xl border border-white border-opacity-10 bg-white bg-opacity-5 p-6 shadow-2xl transition duration-500 hover:-translate-y-2 hover:bg-white hover:bg-opacity-10 scroll-reveal opacity-0 translate-y-8">
+                        <div class="overflow-hidden rounded-3xl mb-6">
+                            <img src="Fotos/logistica-inversa.png"
+                                alt="Trabajador en almacén procesando devoluciones y paquetes en logística inversa"
+                                class="h-56 w-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <h4 class="text-2xl font-semibold mb-3 text-white" data-translate="services.returns.title">
+                            Logística Inversa</h4>
+                        <p class="text-gray-300 leading-relaxed" data-translate="services.returns.description">
+                            Procesamos devoluciones inteligentes con criterios
+                            claros y flujos ágiles para reducir costos y mejorar la experiencia del cliente.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="technology"
+            class="py-20 bg-gray-900 scroll-reveal opacity-0 translate-y-8 transition duration-700 ease-out">
+            <div class="container mx-auto px-4">
+                <h3 class="text-4xl font-bold text-center mb-12 text-orange-400" data-translate="technology.title">
+                    TrackFlow Tech</h3>
+                <div class="grid gap-8 lg:grid-cols-3">
+                    <div
+                        class="bg-gray-800 p-8 rounded-3xl border-l-4 border-orange-400 shadow-xl transition duration-500 hover:-translate-y-2 hover:bg-gray-700 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                        <h4 class="text-2xl font-semibold mb-4 text-white"
+                            data-translate="technology.infrastructure.title">Infraestructura Integrada</h4>
+                        <p class="text-gray-300 leading-relaxed" data-translate="technology.infrastructure.description">
+                            Unificamos datos de almacenes en Los Ángeles y
+                            Zaragoza, conectando inventarios, pedidos y entregas bajo una misma plataforma de control.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-gray-800 p-8 rounded-3xl border-l-4 border-orange-400 shadow-xl transition duration-500 hover:-translate-y-2 hover:bg-gray-700 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                        <h4 class="text-2xl font-semibold mb-4 text-white" data-translate="technology.automation.title">
+                            Automatización Operativa</h4>
+                        <p class="text-gray-300 leading-relaxed" data-translate="technology.automation.description">
+                            Desde la asignación de transportista hasta la
+                            aprobación de devoluciones, trabajamos para eliminar tareas manuales y generar respuestas
+                            más rápidas.</p>
+                    </div>
+                    <div
+                        class="bg-gray-800 p-8 rounded-3xl border-l-4 border-orange-400 shadow-xl transition duration-500 hover:-translate-y-2 hover:bg-gray-700 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                        <h4 class="text-2xl font-semibold mb-4 text-white" data-translate="technology.insights.title">
+                            Visión Ejecutiva</h4>
+                        <p class="text-gray-300 leading-relaxed" data-translate="technology.insights.description">
+                            Proveemos indicadores de negocio en tiempo real que
+                            permiten decisiones estratégicas sin depender de informes manuales semanales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about"
+            class="py-20 bg-gray-900 scroll-reveal opacity-0 translate-y-8 transition duration-700 ease-out">
+            <div class="container mx-auto px-4">
+                <h3 class="text-4xl font-bold text-center mb-12 text-orange-400" data-translate="about.title">Por Qué
+                    Elegir TrackFlow</h3>
+                <div class="max-w-5xl mx-auto">
+                    <p class="text-lg text-gray-300 mb-10 text-center" data-translate="about.description">Fundada en
+                        2009, TrackFlow ha sido el socio
+                        logístico de marcas de e-commerce líderes. Con operaciones en EE.UU. y España, manejamos todo el
+                        proceso logístico para que tú te enfoques en lo que mejor haces: vender productos.</p>
+
+                    <div class="grid md:grid-cols-2 gap-8 mb-10">
+                        <div
+                            class="bg-gray-800 p-6 rounded-lg border-l-4 border-orange-400 transition duration-500 hover:-translate-y-2 hover:bg-gray-700 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                            <h4 class="text-xl font-semibold mb-4 text-orange-400" data-translate="about.card1.title">
+                                Operación Integrada</h4>
+                            <p class="text-gray-300" data-translate="about.card1.text">Gestionamos todo el ciclo
+                                logístico: almacenamiento en nuestros
+                                centros en Los Ángeles y Zaragoza, picking, empaque, transporte a través de 8
+                                transportistas premium y gestión de devoluciones.</p>
+                        </div>
+                        <div
+                            class="bg-gray-800 p-6 rounded-lg border-l-4 border-orange-400 transition duration-500 hover:-translate-y-2 hover:bg-gray-700 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                            <h4 class="text-xl font-semibold mb-4 text-orange-400" data-translate="about.card2.title">
+                                Visibilidad Real</h4>
+                            <p class="text-gray-300" data-translate="about.card2.text">Acceso a información en tiempo
+                                real de tu inventario, estado de
+                                pedidos y entregas. Sin sorpresas, sin papeleos, sin viajes a sistemas dispares.</p>
+                        </div>
+                        <div
+                            class="bg-gray-800 p-6 rounded-lg border-l-4 border-orange-400 transition duration-500 hover:-translate-y-2 hover:bg-gray-700 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                            <h4 class="text-xl font-semibold mb-4 text-orange-400" data-translate="about.card3.title">
+                                Logística Inversa Eficiente</h4>
+                            <p class="text-gray-300" data-translate="about.card3.text">Manejamos devoluciones de manera
+                                inteligente. Entre el 18% y 25% de
+                                volumen son devoluciones, y nosotros las procesamos con criterios claros y rapidez.</p>
+                        </div>
+                        <div
+                            class="bg-gray-800 p-6 rounded-lg border-l-4 border-orange-400 transition duration-500 hover:-translate-y-2 hover:bg-gray-700 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                            <h4 class="text-xl font-semibold mb-4 text-orange-400" data-translate="about.card4.title">
+                                Soporte 24/7</h4>
+                            <p class="text-gray-300" data-translate="about.card4.text">Nuestro equipo de atención al
+                                cliente está disponible para resolver
+                                consultas, incidencias y potenciar la experiencia de tus clientes finales.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-gray-800 to-gray-700 p-8 rounded-lg">
+                        <h4 class="text-2xl font-bold mb-6 text-center text-orange-400"
+                            data-translate="about.benefits.title">Beneficios Comprobados</h4>
+                        <ul class="grid md:grid-cols-3 gap-4 text-center text-gray-300">
+                            <li class="flex flex-col items-center">
+                                <span class="text-3xl font-bold text-orange-400 mb-2">130+</span>
+                                <span data-translate="about.benefit1">Empleados especializados</span>
+                            </li>
+                            <li class="flex flex-col items-center">
+                                <span class="text-3xl font-bold text-orange-400 mb-2">€9M</span>
+                                <span data-translate="about.benefit2">Facturación anual</span>
+                            </li>
+                            <li class="flex flex-col items-center">
+                                <span class="text-3xl font-bold text-orange-400 mb-2">2 PAÍSES</span>
+                                <span data-translate="about.benefit3">Cobertura operativa</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results"
+            class="py-20 bg-gray-900 scroll-reveal opacity-0 translate-y-8 transition duration-700 ease-out">
+            <div class="container mx-auto px-4">
+                <h3 class="text-4xl font-bold text-center mb-12 text-orange-400" data-translate="results.title">
+                    Resultados para Nuestros Clientes</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-orange-400 border-opacity-20 text-center transition duration-500 hover:-translate-y-2 hover:border-orange-400 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                        <p class="text-4xl font-bold text-orange-400 mb-2">100+</p>
+                        <p class="text-gray-300 font-semibold" data-translate="results.stat1">Clientes Satisfechos</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-orange-400 border-opacity-20 text-center transition duration-500 hover:-translate-y-2 hover:border-orange-400 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        <p class="text-4xl font-bold text-orange-400 mb-2">99.5%</p>
+                        <p class="text-gray-300 font-semibold" data-translate="results.stat2">Precisión en Entregas</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-orange-400 border-opacity-20 text-center transition duration-500 hover:-translate-y-2 hover:border-orange-400 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
+                        </svg>
+                        <p class="text-4xl font-bold text-orange-400 mb-2">1M+</p>
+                        <p class="text-gray-300 font-semibold" data-translate="results.stat3">Paquetes Procesados</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-orange-400 border-opacity-20 text-center transition duration-500 hover:-translate-y-2 hover:border-orange-400 cursor-pointer scroll-reveal opacity-0 translate-y-8">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M16 6l2.29 2.29-4.58 4.58 4.58 4.58L16 18H8l2.29-2.29-4.58-4.58 4.58-4.58L8 6h8z" />
+                        </svg>
+                        <p class="text-4xl font-bold text-orange-400 mb-2">48h</p>
+                        <p class="text-gray-300 font-semibold" data-translate="results.stat4">Tiempo Promedio Entrega
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-16 grid md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-gray-800 p-6 rounded-lg text-center border-t-4 border-orange-400 transition duration-500 hover:-translate-y-2 hover:bg-gray-700 scroll-reveal opacity-0 translate-y-8">
+                        <p class="text-gray-300 text-lg italic mb-4" data-translate="results.quote1">"TrackFlow
+                            transformó completamente nuestra
+                            operación logística. Pasamos de múltiples sistemas a una plataforma unificada."</p>
+                        <p class="text-orange-400 font-semibold" data-translate="results.quote1.by">CEO, E-Commerce
+                            Premium</p>
+                    </div>
+                    <div
+                        class="bg-gray-800 p-6 rounded-lg text-center border-t-4 border-orange-400 transition duration-500 hover:-translate-y-2 hover:bg-gray-700 scroll-reveal opacity-0 translate-y-8">
+                        <p class="text-gray-300 text-lg italic mb-4" data-translate="results.quote2">"La visibilidad en
+                            tiempo real nos permite tomar
+                            decisiones estratégicas más rápidas. Excelente atención al cliente."</p>
+                        <p class="text-orange-400 font-semibold" data-translate="results.quote2.by">Operations Manager,
+                            Retailer Global</p>
+                    </div>
+                    <div
+                        class="bg-gray-800 p-6 rounded-lg text-center border-t-4 border-orange-400 transition duration-500 hover:-translate-y-2 hover:bg-gray-700 scroll-reveal opacity-0 translate-y-8">
+                        <p class="text-gray-300 text-lg italic mb-4" data-translate="results.quote3">"Redujimos errores
+                            de empaque en un 87% y mejoramos
+                            significativamente la satisfacción de clientes finales."</p>
+                        <p class="text-orange-400 font-semibold" data-translate="results.quote3.by">Director, Brand
+                            Marketplace</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact"
+            class="py-20 bg-gray-800 scroll-reveal opacity-0 translate-y-8 transition duration-700 ease-out">
+            <div class="container mx-auto px-4">
+                <h3 class="text-4xl font-bold text-center mb-4 text-orange-400" data-translate="contact.title">
+                    Contáctanos</h3>
+                <p class="text-xl text-gray-300 text-center mb-16 max-w-2xl mx-auto"
+                    data-translate="contact.description">¿Listo para modernizar tu logística
+                    y crecer tu negocio? Únete a TrackFlow hoy y descubre la diferencia.</p>
+
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div
+                        class="bg-gray-900 p-8 rounded-lg text-center border border-gray-700 hover:border-orange-400 transition">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <h4 class="text-lg font-semibold mb-2" data-translate="contact.email.title">Correo</h4>
+                        <p class="text-gray-400" data-translate="contact.email.text">contacto@trackflow.com</p>
+                    </div>
+                    <div
+                        class="bg-gray-900 p-8 rounded-lg text-center border border-gray-700 hover:border-orange-400 transition">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        <h4 class="text-lg font-semibold mb-2" data-translate="contact.phone.title">Teléfono</h4>
+                        <p class="text-gray-400" data-translate="contact.phone.text">+34 976 000 000</p>
+                    </div>
+                    <div
+                        class="bg-gray-900 p-8 rounded-lg text-center border border-gray-700 hover:border-orange-400 transition">
+                        <svg class="w-12 h-12 mx-auto mb-4 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4" />
+                        </svg>
+                        <h4 class="text-lg font-semibold mb-2" data-translate="contact.location.title">Ubicaciones</h4>
+                        <p class="text-gray-400" data-translate="contact.location.text">Los Ángeles, USA & Zaragoza, ES
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-gray-400 mb-8" data-translate="contact.cta">Completa el formulario de aplicación y
+                        nos pondremos en contacto
+                        contigo en 24 horas.</p>
+                    <a href="application.html"
+                        class="bg-orange-400 hover:bg-orange-300 text-gray-900 px-10 py-4 rounded-full text-lg font-semibold transition duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-400/60 active:scale-95 inline-block"
+                        data-translate="nav.apply">Aplicar
+                        Ahora</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 py-8 border-t border-gray-700">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400" data-translate="footer.copyright">&copy; 2023 TrackFlow. Todos los derechos
+                reservados.</p>
+            <p class="text-gray-400 mt-2" data-translate="footer.locations">Operando en Los Ángeles, EE.UU. y Zaragoza,
+                España.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+    <script src="translations.js"></script>
+    <script>
+        const defaultLanguage =
+            localStorage.getItem("language") || "es";
+
+        function setLanguage(language) {
+
+            document.documentElement.lang = language;
+
+            localStorage.setItem("language", language);
+
+            document.querySelectorAll("[data-translate]")
+                .forEach(element => {
+
+                    const key = element.dataset.translate;
+
+                    if (translations[language][key]) {
+                        if (element.tagName === "META") {
+                            element.content = translations[language][key];
+                        } else {
+                            element.textContent = translations[language][key];
+                        }
+                    }
+                });
+
+            const langButton =
+                document.getElementById("language-toggle");
+
+            langButton.textContent =
+                language === "es" ? "EN" : "ES";
+        }
+
+        function toggleLanguage() {
+
+            const current =
+                localStorage.getItem("language") || "es";
+
+            const next =
+                current === "es" ? "en" : "es";
+
+            setLanguage(next);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setLanguage(defaultLanguage);
+        });
+    </script>
+    <script src="Styles.js"></script>
+
+</body>
+
+</html>
