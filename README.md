@@ -74,7 +74,6 @@ Se incluye un formulario para enviar un mail a modo de consulta o solicitud(empr
 
 ## Estructura del Proyecto
 
-```bash
 TrackFlow/
 │
 ├── index.html
@@ -90,3 +89,8 @@ TrackFlow/
 │   └── logistica-inversa.png
 │
 └── README.md
+
+## 🛠️ Instalación
+1. Clona el repositorio:
+   git clone https://github.com/martinmaccmacc-hash/Web-Empresa-TrackFlow-maccmacc.git
+2. Abre el archivo `index.html` en tu navegador.
