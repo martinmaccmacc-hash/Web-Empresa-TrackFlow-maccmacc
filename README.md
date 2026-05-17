@@ -70,26 +70,6 @@ Se incluye un formulario para enviar un mail a modo de consulta o solicitud(empr
 - Intersection Observer API
 - LocalStorage API
 
----
-
-## Estructura del Proyecto
-
-TrackFlow/
-│
-├── index.html
-├── application.html
-├── translations.js
-├── Styles.js
-├── validation.js
-│
-├── Fotos/
-│   ├── Banner.png
-│   ├── Almacen.png
-│   ├── Camion.png
-│   └── logistica-inversa.png
-│
-└── README.md
-
 ## 🛠️ Instalación
 1. Clona el repositorio:
    git clone https://github.com/martinmaccmacc-hash/Web-Empresa-TrackFlow-maccmacc.git
